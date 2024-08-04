@@ -100,4 +100,5 @@ Please refer to this demo to see how the API is used.
         ]
        ```
 
-       **NOTE: The "username" request parameter is mandatory. Leaving it out or writing it incorrectly will result in the ```400 BAD_REQUEST``` response status.**
+       **NOTE: The "username" request parameter is mandatory. <br>
+       Leaving it out or writing it incorrectly will result in the ```400 BAD_REQUEST``` response status.**
