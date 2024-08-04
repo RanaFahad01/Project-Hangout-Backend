@@ -2,6 +2,7 @@ package com.ranafahad.projecthangoutbackend.controller;
 
 import com.ranafahad.projecthangoutbackend.model.Activity;
 import com.ranafahad.projecthangoutbackend.service.ActivityService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,13 @@ public class MainController {
 
     @GetMapping("activity")
     public ResponseEntity<List<Activity>> getAllActivities(){
-        return ResponseEntity.ok(activityService.getAllActivities());
+        List<Activity> activities;
+        try{
+            activities = activityService.getAllActivities();
+            return ResponseEntity.ok(activities);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
     @PostMapping("activity")
@@ -33,7 +40,13 @@ public class MainController {
     public ResponseEntity<List<Activity>> getAllActivitiesByUser(
             @RequestParam(required = true) String username
     ){
-        return ResponseEntity.ok(activityService.getAllActivitiesByUser(username));
+        List<Activity> activities;
+        try{
+            activities = activityService.getAllActivitiesByUser(username);
+            return ResponseEntity.ok(activities);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
 }
