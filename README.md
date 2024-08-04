@@ -1,4 +1,4 @@
-# Project Hangout: The Backend API
+# Project Hangout: The Backend API ([Usage Demo](USAGEDEMO.md))
 
 Project Hangout is a project inspired by the lack of social life every college student has felt at some point in their lives.
 
