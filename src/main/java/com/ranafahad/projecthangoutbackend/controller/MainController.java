@@ -29,7 +29,7 @@ public class MainController {
         return activityService.postActivity(activity);
     }
 
-    @PostMapping("activityByUser")
+    @GetMapping("activityByUser")
     public ResponseEntity<List<Activity>> getAllActivitiesByUser(
             @RequestParam(required = true) String username
     ){
