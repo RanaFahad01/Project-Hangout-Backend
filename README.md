@@ -25,21 +25,57 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 * Java 17 or above
 * An IDE with Maven support (IntelliJ IDEA recommended)
+* A [PostgreSQL](https://www.w3schools.com/postgresql/postgresql_install.php) or [MySQL](https://www.geeksforgeeks.org/how-to-install-mysql-in-windows/) local database for testing
+  * See [Setting Up The Test Database](#setting-up-the-test-database) to set up the test database
+* A free account with [API-Ninjas](https://api-ninjas.com/) so that you can use their [profanity filter API](https://api-ninjas.com/api/profanityfilter)
 
 ### Installation
+
 * #### Through GitHub:
     I. Clone the repository
   
     II. Open it using an IDE of your choice, it should automatically load in the dependencies since it's a Maven project.
 
-### Unit Testing
+    III. In the application.properties file:
+  * Copy your API key from the API-ninjas website and paste it in the "apininjas.api.key" field
+  * Enter your database login credentials in the "spring.datasource.username" and "spring.datasource.password" fields.
 
-This project comes with unit tests. If you want to look at the tests and what they do, they are stored in the src/Test directory
+
+### Setting Up The Test Database
+Run this script in your database to create the table:
+
+* #### For PostgreSQL:
+  ```postgresql
+  CREATE TABLE IF NOT EXISTS activity(
+      id SERIAL PRIMARY KEY,
+      username VARCHAR(25) NOT NULL,
+      time_posted TIMESTAMP NOT NULL,
+      title VARCHAR(127) NOT NULL,
+      description VARCHAR(255) NOT NULL,
+      contact_info VARCHAR(127) NOT NULL
+  );
+  ```
+
+* #### For MySQL:
+  ```mysql
+  CREATE TABLE IF NOT EXISTS activity(
+      id INTEGER AUTO_INCREMENT PRIMARY KEY,
+      username VARCHAR(25) NOT NULL,
+      time_posted DATETIME NOT NULL,
+      title VARCHAR(127) NOT NULL,
+      description VARCHAR(255) NOT NULL,
+      contact_info VARCHAR(127) NOT NULL
+  );
+  ```
+
+### Testing
+
+This project comes with unit and integration tests. If you want to look at the tests and what they do, they are stored in the src/Test directory
 
 <br>
 
 ## Built With
 
 * Java
-* [Maven](https://maven.apache.org/) - Dependency Management
+* [Maven](https://maven.apache.org/)
 * [Spring Boot](https://start.spring.io/)
