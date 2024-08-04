@@ -45,7 +45,7 @@ These instructions will get you a copy of the project up and running on your loc
 Run this script in your database to create the table:
 
 * #### For PostgreSQL:
-  ```postgresql
+  ```sql
   CREATE TABLE IF NOT EXISTS activity(
       id SERIAL PRIMARY KEY,
       username VARCHAR(25) NOT NULL,
@@ -57,7 +57,7 @@ Run this script in your database to create the table:
   ```
 
 * #### For MySQL:
-  ```mysql
+  ```sql
   CREATE TABLE IF NOT EXISTS activity(
       id INTEGER AUTO_INCREMENT PRIMARY KEY,
       username VARCHAR(25) NOT NULL,
