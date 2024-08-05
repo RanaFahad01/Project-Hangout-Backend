@@ -74,6 +74,27 @@ This project comes with unit and integration tests. If you want to look at the t
 
 <br>
 
+## Deploying To Production On Render For Free
+
+You can deploy your Spring Boot Project + a PostgreSQL database container for free on [Render](https://render.com/), although it does come with a decent amount of [restrictions](https://docs.render.com/free#free-web-services).
+
+### Prerequisites
+* Make a free account on [Render](https://render.com/) and connect it to your GitHub account
+* Make sure you have PostgreSQL (The PSQL client in particular) installed on your device
+
+### Steps:
+1. Follow this tutorial to set up a PostgreSQL database on Render: [Setting up a PostGreSQL database on Render](https://youtu.be/frGBmQKi_PI)
+
+ &nbsp;&nbsp;&nbsp;&nbsp;**Info:** If you want to understand why I'm what I do for the following steps, watch this tutorial first: [Hosting your Spring Boot app on Render](https://youtu.be/p3AIecyvok4)
+
+2. Once you've set up the database container and entered your credentials in your application.properties file, push your maven project (along with the Dockerfile) to a private repository. **(NOTE: Make sure it's private since it contains sensitive credentials)**
+3. Create a new web service on Render, and connect your repository
+4. Choose the free tier
+5. Wait for it to deploy
+6. That's it! You can now use the URL given to send requests to the endpoints exposed by your application. 
+
+<br>
+
 ## Built With
 
 * Java
